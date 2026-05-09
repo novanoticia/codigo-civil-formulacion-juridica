@@ -1,0 +1,42 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+.directory
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.settings/
+
+# Python (por si se añaden scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Node (por si se añaden herramientas)
+node_modules/
+
+# Borradores y notas locales
+*.draft.md
+*.local.md
+notas-internas/
+borradores/
+
+# Casos reales bajo ningún concepto deben acabar en el repo
+casos-reales/
+casos-cliente/
+*.caso-real.md
