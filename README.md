@@ -82,7 +82,7 @@ Detalle completo en [`SKILL.md`](./SKILL.md), lógica del razonamiento en [`fluj
 
 ## Instalación
 
-Hay tres formas de usar el skill, según dónde quieras invocarlo. La primera es la más sencilla.
+Hay cuatro formas de usar el skill, según dónde quieras invocarlo. Las dos primeras son las más sencillas.
 
 ### Opción 1 — Claude.ai (web, app de escritorio o móvil)
 
@@ -99,7 +99,18 @@ A partir de ese momento, el skill se invoca con `/codigo-civil-formulacion-jurid
 
 > El archivo equivalente con extensión `.skill` (**[`dist/codigo-civil-formulacion-juridica.skill`](./dist/codigo-civil-formulacion-juridica.skill)**) es el mismo paquete con extensión alternativa, presente para compatibilidad con marketplaces de terceros (Agensi, etc.). Para Claude.ai oficial hay que renombrarlo a `.zip` antes de subirlo, o simplemente usar directamente el `.zip`.
 
-### Opción 2 — Claude Code (línea de comandos)
+### Opción 2 — Perplexity (Skills)
+
+Perplexity admite el mismo paquete de skill que Claude.ai, subiendo el `.zip` directamente.
+
+1. Descarga **[`dist/codigo-civil-formulacion-juridica.zip`](./dist/codigo-civil-formulacion-juridica.zip)**.
+2. En Perplexity, entra en la gestión de **Skills** y elige **subir / importar skill**.
+3. Selecciona el archivo `.zip` descargado.
+4. Se invoca igual que en Claude: `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`).
+
+> **Nota técnica:** Perplexity valida la longitud del campo `description` del skill **en bytes UTF-8** (límite 1024), no en caracteres; en español, las vocales acentuadas y la `ñ` cuentan como 2 bytes. La descripción de este skill se mantiene dentro del umbral (766 bytes), por lo que la importación es directa. Si editas la descripción, no superes ~1000 bytes UTF-8.
+
+### Opción 3 — Claude Code (línea de comandos)
 
 Para usar el skill desde Claude Code en tu Mac:
 
@@ -117,7 +128,7 @@ unzip /ruta/a/codigo-civil-formulacion-juridica.zip
 
 Tras descomprimir tendrás `~/.claude/skills/codigo-civil-formulacion-juridica/` con los archivos del runtime. Claude Code lo detecta automáticamente; se invoca igual que en la app: `/codigo-civil-formulacion-juridica [modo]`.
 
-### Opción 3 — Otras inteligencias artificiales
+### Opción 4 — Otras inteligencias artificiales
 
 El skill es texto Markdown. Cualquier asistente conversacional capaz de seguir instrucciones extensas puede aplicarlo, pegándolo como prompt inicial.
 
