@@ -15,6 +15,7 @@ Tercer borrador, tras segunda ronda de tests con dos casos ficticios adicionales
 - Nuevo ángulo en el paso 6 (cuestionamiento argumental): riesgos pasivos del cliente no planteados por él, especialmente en mercantil, concurso, sucesiones con preterición, derecho de la edificación y supuestos donde el cliente puede ser objeto de acciones rescisorias, calificación culpable, responsabilidad subsidiaria o reclasificación crediticia.
 - Sección de autoría y licencia añadida al `SKILL.md` y al manual PDF.
 - Campo `license: CC BY 4.0` en el frontmatter del `SKILL.md`.
+- Compatibilidad de instalación con **Perplexity** (`.zip` directo) y **Mistral AI** (carpeta en el espacio *Work*); campo `description` ajustado a menos de 500 caracteres (485) para el límite de Mistral, conservando trigger, modos y límites de seguridad; paquete `dist/` regenerado.
 
 **Estado**
 
