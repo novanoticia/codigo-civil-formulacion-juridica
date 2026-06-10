@@ -1,7 +1,7 @@
 ---
 name: codigo-civil-formulacion-juridica
 description: >-
-  Apoya a juristas (abogados en ejercicio, estudiantes avanzados bajo supervisión) a estructurar la formulación jurídica de casos ya estudiados, usando el Código Civil español como referencia normativa primaria. **Trigger principal "/codigo-civil-formulacion-juridica"**, que activa el skill siempre que el usuario lo escriba exacto. Soporta modos completo (default), alternativas, lagunas, riesgo, auditoria. Activa también con expresiones como "formula este caso", "califica jurídicamente este supuesto", "qué calificaciones alternativas debería considerar" o "audita esta formulación jurídica". NO se activa para autoasesoramiento legal del propio usuario sin mediación profesional, ni cuando el caso contenga datos identificables de partes reales.
+  Apoya a juristas (abogados y estudiantes avanzados bajo supervisión) a estructurar la formulación jurídica de casos ya estudiados, con el Código Civil español como norma de referencia. Trigger obligatorio: "/codigo-civil-formulacion-juridica"; actívalo con ese comando o con "formula/califica jurídicamente este caso". Modos: completo (default), alternativas, lagunas, riesgo, auditoria. NO para autoasesoramiento sin mediación profesional ni con datos identificables de partes reales.
 license: CC BY 4.0
 ---
 

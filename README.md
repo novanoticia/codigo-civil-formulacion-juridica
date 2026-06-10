@@ -1,6 +1,6 @@
 # codigo-civil-formulacion-juridica
 
-Skill para asistentes conversacionales (Claude, Anthropic) de **apoyo a la formulación jurídica de casos civiles** ya estudiados por jurista habilitado, usando el **Código Civil español** como referencia normativa primaria. Estructura el caso, jerarquiza calificaciones, identifica descartes obligatorios, detecta lagunas de información y de Derecho, anticipa riesgos procesales y somete la propia formulación a cuestionamiento argumental. **No emite dictamen ni asesora a la parte.**
+Skill para asistentes conversacionales (Claude de Anthropic; también compatible con las **Skills de Perplexity** y de **Mistral AI**) de **apoyo a la formulación jurídica de casos civiles** ya estudiados por jurista habilitado, usando el **Código Civil español** como referencia normativa primaria. Estructura el caso, jerarquiza calificaciones, identifica descartes obligatorios, detecta lagunas de información y de Derecho, anticipa riesgos procesales y somete la propia formulación a cuestionamiento argumental. **No emite dictamen ni asesora a la parte.**
 
 > **Autor:** Pablo · [mindandhealth.org](https://mindandhealth.org) · [github.com/novanoticia](https://github.com/novanoticia)
 > **Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es)
@@ -82,7 +82,7 @@ Detalle completo en [`SKILL.md`](./SKILL.md), lógica del razonamiento en [`fluj
 
 ## Instalación
 
-Hay cuatro formas de usar el skill, según dónde quieras invocarlo. Las dos primeras son las más sencillas.
+Hay cinco formas de usar el skill, según dónde quieras invocarlo. Las tres primeras son las más sencillas.
 
 ### Opción 1 — Claude.ai (web, app de escritorio o móvil)
 
@@ -108,9 +108,18 @@ Perplexity admite el mismo paquete de skill que Claude.ai, subiendo el `.zip` di
 3. Selecciona el archivo `.zip` descargado.
 4. Se invoca igual que en Claude: `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`).
 
-> **Nota técnica:** Perplexity valida la longitud del campo `description` del skill **en bytes UTF-8** (límite 1024), no en caracteres; en español, las vocales acentuadas y la `ñ` cuentan como 2 bytes. La descripción de este skill se mantiene dentro del umbral (766 bytes), por lo que la importación es directa. Si editas la descripción, no superes ~1000 bytes UTF-8.
+> **Nota técnica:** el límite de longitud del campo `description` depende de la plataforma: Perplexity valida **en bytes UTF-8** (límite 1024) y Mistral **en caracteres** (límite 500). En español, las vocales acentuadas y la `ñ` cuentan como 2 bytes. La descripción de este skill mide **485 caracteres / 493 bytes**, dentro de ambos umbrales. Si la editas, no superes los **500 caracteres** para conservar la compatibilidad con Mistral.
 
-### Opción 3 — Claude Code (línea de comandos)
+### Opción 3 — Mistral AI (Skills)
+
+Mistral admite Skills en su espacio **Work**, a partir de la carpeta del skill descomprimida.
+
+1. Descarga **[`dist/codigo-civil-formulacion-juridica.zip`](./dist/codigo-civil-formulacion-juridica.zip)** y **descomprímelo**.
+2. En Mistral AI, dentro del espacio **Work**, abre la sección de **Skills**.
+3. Selecciona la **carpeta** resultante (`codigo-civil-formulacion-juridica/`, la que contiene `SKILL.md`).
+4. Se invoca igual que en las demás plataformas: `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`).
+
+### Opción 4 — Claude Code (línea de comandos)
 
 Para usar el skill desde Claude Code en tu Mac:
 
@@ -128,7 +137,7 @@ unzip /ruta/a/codigo-civil-formulacion-juridica.zip
 
 Tras descomprimir tendrás `~/.claude/skills/codigo-civil-formulacion-juridica/` con los archivos del runtime. Claude Code lo detecta automáticamente; se invoca igual que en la app: `/codigo-civil-formulacion-juridica [modo]`.
 
-### Opción 4 — Otras inteligencias artificiales
+### Opción 5 — Otras inteligencias artificiales
 
 El skill es texto Markdown. Cualquier asistente conversacional capaz de seguir instrucciones extensas puede aplicarlo, pegándolo como prompt inicial.
 
