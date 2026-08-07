@@ -63,7 +63,7 @@ Recibe un caso civil real ya estudiado por un jurista habilitado y devuelve, en 
 - `riesgo` — pasos 1 y 5. Para revisión sobria de contadores procesales y obstáculos de admisibilidad.
 - `auditoria` — pasos 1 y 6. Para someter una formulación ya hecha a cuestionamiento argumental.
 
-Detalle completo en [`SKILL.md`](./SKILL.md), lógica del razonamiento en [`flujo.md`](./flujo.md), formato de entrada en [`plantilla-caso.md`](./plantilla-caso.md), y discusión exhaustiva en el manual PDF.
+Detalle completo en [`SKILL.md`](./skills/codigo-civil-formulacion-juridica/SKILL.md), lógica del razonamiento en [`flujo.md`](./skills/codigo-civil-formulacion-juridica/flujo.md), formato de entrada en [`plantilla-caso.md`](./skills/codigo-civil-formulacion-juridica/plantilla-caso.md), y discusión exhaustiva en el manual PDF.
 
 ---
 
@@ -137,7 +137,30 @@ unzip /ruta/a/codigo-civil-formulacion-juridica.zip
 
 Tras descomprimir tendrás `~/.claude/skills/codigo-civil-formulacion-juridica/` con los archivos del runtime. Claude Code lo detecta automáticamente; se invoca igual que en la app: `/codigo-civil-formulacion-juridica [modo]`.
 
-### Opción 5 — Otras inteligencias artificiales
+### Opción 5 — Como plugin (Claude Code y Cowork)
+
+Desde la v0.4 el repositorio también es un **plugin** conforme a
+[Agent Plugins 1.0.0](https://agent-plugins.org/specification), el formato
+portátil de la Agentic AI Foundation. Eso permite instalarlo entero en vez de
+copiar la carpeta del skill:
+
+```bash
+# Probarlo sin instalar
+claude --plugin-dir /ruta/al/repo
+
+# O clonar e instalar desde el repositorio
+git clone https://github.com/novanoticia/codigo-civil-formulacion-juridica
+claude --plugin-dir ./codigo-civil-formulacion-juridica
+```
+
+En Cowork: comprime la **raíz del repositorio** (donde están `plugin.json`,
+`.claude-plugin/` y `skills/`) y súbela en *Customize → Plugins → Upload*.
+
+Invocado como plugin el comando queda namespaced, con el nombre del plugin por
+delante. Si prefieres el `/codigo-civil-formulacion-juridica` a secas, usa la
+Opción 4.
+
+### Opción 6 — Otras inteligencias artificiales
 
 El skill es texto Markdown. Cualquier asistente conversacional capaz de seguir instrucciones extensas puede aplicarlo, pegándolo como prompt inicial.
 
@@ -177,9 +200,16 @@ Independientemente de cómo lo instales:
 
 ```
 codigo-civil-formulacion-juridica/
-├── SKILL.md                 # Descriptor del skill: trigger, modos, función
-├── flujo.md                 # Razonamiento de los seis pasos + apéndice canónico
-├── plantilla-caso.md        # Formato de entrada para el jurista
+├── plugin.json              # Manifiesto portable (Agent Plugins 1.0.0)
+├── .claude-plugin/
+│   └── plugin.json          # Manifiesto de Claude Code
+├── skills/
+│   └── codigo-civil-formulacion-juridica/
+│       ├── SKILL.md         # Descriptor del skill: trigger, modos, función
+│       ├── flujo.md         # Razonamiento de los seis pasos + apéndice canónico
+│       └── plantilla-caso.md # Formato de entrada para el jurista
+├── scripts/
+│   └── build-dist.sh        # Regenera dist/ desde skills/
 ├── LICENSE                  # CC BY 4.0
 ├── README.md                # Este archivo
 ├── CHANGELOG.md             # Historial de versiones

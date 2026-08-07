@@ -4,7 +4,18 @@ Historial de versiones del skill `codigo-civil-formulacion-juridica`. Las versio
 
 ---
 
-## v0.3 — Estado actual
+## v0.4 — Estado actual
+
+Cambio de empaquetado, **sin tocar el contenido jurídico**: ni el `SKILL.md`, ni el flujo de seis pasos, ni la plantilla de caso, ni los criterios deontológicos. Solo cambia dónde viven los archivos y cómo se instala.
+
+- El repositorio es ahora un **plugin conforme a [Agent Plugins 1.0.0](https://agent-plugins.org/specification)**, el formato portátil de la Agentic AI Foundation. Se añaden `plugin.json` (portable, con el `$schema` canónico) y `.claude-plugin/plugin.json` (Claude Code). Habilita una vía de instalación nueva —como plugin en Claude Code y Cowork, Opción 5 del README— sin retirar ninguna anterior.
+- El skill pasa de la raíz a `skills/codigo-civil-formulacion-juridica/`, junto con `flujo.md` y `plantilla-caso.md`: es la ubicación fija que el §6.1 de la spec exige para descubrir skills. Los acompañantes quedan planos al lado del `SKILL.md`, no bajo `references/`, porque el cuerpo los referencia por nombre pelado.
+- `scripts/build-dist.sh` regenera `dist/`, que hasta ahora se armaba a mano.
+- **El paquete de `dist/` conserva exactamente la misma forma**: una carpeta `codigo-civil-formulacion-juridica/` con `SKILL.md`, `flujo.md`, `plantilla-caso.md` y `LICENSE`. Verificado comparando la lista de ficheros antes y después. Las opciones 1 a 4 del README siguen funcionando igual, y `tests/` sigue fuera del paquete.
+
+---
+
+## v0.3
 
 Tercer borrador, tras segunda ronda de tests con dos casos ficticios adicionales: familia con custodia disputada y mediación familiar autonómica andaluza; mercantil entre empresarios sin consumo con concurso del deudor en horizonte.
 
