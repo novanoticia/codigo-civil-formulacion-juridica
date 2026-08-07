@@ -1,10 +1,25 @@
 # codigo-civil-formulacion-juridica
 
-Skill para asistentes conversacionales (Claude de Anthropic; también compatible con las **Skills de Perplexity** y de **Mistral AI**) de **apoyo a la formulación jurídica de casos civiles** ya estudiados por jurista habilitado, usando el **Código Civil español** como referencia normativa primaria. Estructura el caso, jerarquiza calificaciones, identifica descartes obligatorios, detecta lagunas de información y de Derecho, anticipa riesgos procesales y somete la propia formulación a cuestionamiento argumental. **No emite dictamen ni asesora a la parte.**
+Skill para asistentes conversacionales (Claude de Anthropic; también compatible con las **Skills de ChatGPT**, de **Perplexity** y de **Mistral AI**) de **apoyo a la formulación jurídica de casos civiles** ya estudiados por jurista habilitado, usando el **Código Civil español** como referencia normativa primaria. Estructura el caso, jerarquiza calificaciones, identifica descartes obligatorios, detecta lagunas de información y de Derecho, anticipa riesgos procesales y somete la propia formulación a cuestionamiento argumental. **No emite dictamen ni asesora a la parte.**
 
 > **Autor:** Pablo · [mindandhealth.org](https://mindandhealth.org) · [github.com/novanoticia](https://github.com/novanoticia)
 > **Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es)
-> **Versión actual:** v0.3
+> **Versión actual:** v0.4
+
+> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el
+> formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon, Microsoft,
+> Cursor y Vercel, con Google como *core maintainer*). El paquete lleva el manifiesto
+> portable `plugin.json` en la raíz y el skill en
+> `skills/codigo-civil-formulacion-juridica/`, así que cualquier cliente conformante lo
+> descubre.
+>
+> **Funciona en ChatGPT.** El skill es texto —protocolo de razonamiento, criterios y
+> plantilla, sin ejecución local—, así que se sube tal cual y funciona igual que en
+> Claude. Su frontmatter valida contra el conjunto cerrado de
+> [Agent Skills](https://agentskills.io/specification), que es lo que ChatGPT, claude.ai
+> y la Skills API exigen para aceptar la subida: una clave de más ahí no se ignora, falla
+> con error duro. Las *Skills* de ChatGPT requieren plan Business, Enterprise, Healthcare
+> o Edu.
 
 ---
 
@@ -20,7 +35,7 @@ Es un documento pensado para leer una vez antes del primer uso. Sin esa lectura,
 
 ## Estado del proyecto
 
-Versión **v0.3**. Probado con cinco casos sintéticos: contractual con vicios del consentimiento y caducidad del art. 1301 CC; sucesiones con vecindad civil catalana (foral); responsabilidad extracontractual con concurrencia de culpas y vía penal alternativa; familia con custodia disputada y mediación familiar autonómica andaluza; mercantil entre empresarios sin consumo con concurso del deudor en horizonte.
+Versión **v0.4**. Probado con cinco casos sintéticos: contractual con vicios del consentimiento y caducidad del art. 1301 CC; sucesiones con vecindad civil catalana (foral); responsabilidad extracontractual con concurrencia de culpas y vía penal alternativa; familia con custodia disputada y mediación familiar autonómica andaluza; mercantil entre empresarios sin consumo con concurso del deudor en horizonte.
 
 > **No validado con casos reales por juristas en ejercicio.** Pendiente de prueba en despacho real antes de cualquier uso institucional.
 
@@ -99,7 +114,22 @@ A partir de ese momento, el skill se invoca con `/codigo-civil-formulacion-jurid
 
 > El archivo equivalente con extensión `.skill` (**[`dist/codigo-civil-formulacion-juridica.skill`](./dist/codigo-civil-formulacion-juridica.skill)**) es el mismo paquete con extensión alternativa, presente para compatibilidad con marketplaces de terceros (Agensi, etc.). Para Claude.ai oficial hay que renombrarlo a `.zip` antes de subirlo, o simplemente usar directamente el `.zip`.
 
-### Opción 2 — Perplexity (Skills)
+### Opción 2 — ChatGPT (Skills)
+
+ChatGPT admite el mismo paquete, sin pegar texto ni reempaquetar.
+
+1. Descarga **[`dist/codigo-civil-formulacion-juridica.zip`](./dist/codigo-civil-formulacion-juridica.zip)**.
+2. En ChatGPT, ve a **Plugins → Skills**.
+3. Pulsa **Create** y luego **Upload from your computer**.
+4. Selecciona el `.zip` descargado y confirma.
+5. Se invoca igual que en Claude: `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`).
+
+> Requiere un plan **Business, Enterprise, Healthcare o Edu**: en las cuentas personales
+> las *Skills* de ChatGPT todavía no están disponibles. El paquete cumple sus requisitos
+> de forma —una única carpeta en la raíz del zip, un solo `SKILL.md`, `description` por
+> debajo de 1024 caracteres— sin tocar nada.
+
+### Opción 3 — Perplexity (Skills)
 
 Perplexity admite el mismo paquete de skill que Claude.ai, subiendo el `.zip` directamente.
 
@@ -110,7 +140,7 @@ Perplexity admite el mismo paquete de skill que Claude.ai, subiendo el `.zip` di
 
 > **Nota técnica:** el límite de longitud del campo `description` depende de la plataforma: Perplexity valida **en bytes UTF-8** (límite 1024) y Mistral **en caracteres** (límite 500). En español, las vocales acentuadas y la `ñ` cuentan como 2 bytes. La descripción de este skill mide **485 caracteres / 493 bytes**, dentro de ambos umbrales. Si la editas, no superes los **500 caracteres** para conservar la compatibilidad con Mistral.
 
-### Opción 3 — Mistral AI (Skills)
+### Opción 4 — Mistral AI (Skills)
 
 Mistral admite Skills en su espacio **Work**, a partir de la carpeta del skill descomprimida.
 
@@ -119,7 +149,7 @@ Mistral admite Skills en su espacio **Work**, a partir de la carpeta del skill d
 3. Selecciona la **carpeta** resultante (`codigo-civil-formulacion-juridica/`, la que contiene `SKILL.md`).
 4. Se invoca igual que en las demás plataformas: `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`).
 
-### Opción 4 — Claude Code (línea de comandos)
+### Opción 5 — Claude Code (línea de comandos)
 
 Para usar el skill desde Claude Code en tu Mac:
 
@@ -137,7 +167,7 @@ unzip /ruta/a/codigo-civil-formulacion-juridica.zip
 
 Tras descomprimir tendrás `~/.claude/skills/codigo-civil-formulacion-juridica/` con los archivos del runtime. Claude Code lo detecta automáticamente; se invoca igual que en la app: `/codigo-civil-formulacion-juridica [modo]`.
 
-### Opción 5 — Como plugin (Claude Code y Cowork)
+### Opción 6 — Como plugin (Claude Code y Cowork)
 
 Desde la v0.4 el repositorio también es un **plugin** conforme a
 [Agent Plugins 1.0.0](https://agent-plugins.org/specification), el formato
@@ -158,9 +188,9 @@ En Cowork: comprime la **raíz del repositorio** (donde están `plugin.json`,
 
 Invocado como plugin el comando queda namespaced, con el nombre del plugin por
 delante. Si prefieres el `/codigo-civil-formulacion-juridica` a secas, usa la
-Opción 4.
+Opción 5.
 
-### Opción 6 — Otras inteligencias artificiales
+### Opción 7 — Otras inteligencias artificiales
 
 El skill es texto Markdown. Cualquier asistente conversacional capaz de seguir instrucciones extensas puede aplicarlo, pegándolo como prompt inicial.
 
