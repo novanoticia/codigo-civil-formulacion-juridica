@@ -102,7 +102,7 @@ Hay cinco formas de usar el skill, según dónde quieras invocarlo. Las tres pri
 
 Es la vía recomendada y más rápida.
 
-1. Descarga el paquete de instalación: **[`dist/codigo-civil-formulacion-juridica.zip`](./dist/codigo-civil-formulacion-juridica.zip)**.
+1. Descarga el paquete de instalación: **[`codigo-civil-formulacion-juridica.zip`](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases/latest/download/codigo-civil-formulacion-juridica.zip)**.
 2. En Claude.ai, ve a **Ajustes → Capacidades → Skills**.
 3. Asegúrate de que **Code execution and file creation** está activado.
 4. Pulsa **Subir skill** (o *Upload skill*).
@@ -111,7 +111,7 @@ Es la vía recomendada y más rápida.
 
 A partir de ese momento, el skill se invoca con `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`) en cualquier conversación. Si no se especifica modo, se ejecuta el modo `completo` por defecto.
 
-> El archivo equivalente con extensión `.skill` (**[`dist/codigo-civil-formulacion-juridica.skill`](./dist/codigo-civil-formulacion-juridica.skill)**) es el mismo paquete con extensión alternativa, presente para compatibilidad con marketplaces de terceros (Agensi, etc.). Para Claude.ai oficial hay que renombrarlo a `.zip` antes de subirlo, o simplemente usar directamente el `.zip`.
+> El archivo equivalente con extensión `.skill` (**[`codigo-civil-formulacion-juridica.skill`](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases/latest/download/codigo-civil-formulacion-juridica.skill)**) es el mismo paquete con extensión alternativa, presente para compatibilidad con marketplaces de terceros (Agensi, etc.). Para Claude.ai oficial hay que renombrarlo a `.zip` antes de subirlo, o simplemente usar directamente el `.zip`.
 
 ### Opción 2 — ChatGPT (Complementos)
 
@@ -133,14 +133,15 @@ Se invoca igual que en Claude: `/codigo-civil-formulacion-juridica` seguido opci
 > Que la instalación sea desde la URL del repositorio, y no subiendo un zip, es
 > posible porque el repo es un plugin conforme a
 > [Agent Plugins 1.0.0](https://agent-plugins.org/specification): lleva el
-> `plugin.json` portable en la raíz y el skill en `skills/codigo-civil-formulacion-juridica/`. El paquete de
-> `dist/` sigue estando ahí para las plataformas que sí piden un zip.
+> `plugin.json` portable en la raíz y el skill en `skills/codigo-civil-formulacion-juridica/`. El paquete
+> `.zip` para las plataformas que sí lo piden está en la sección de
+> [Releases](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases).
 
 ### Opción 3 — Perplexity (Skills)
 
 Perplexity admite el mismo paquete de skill que Claude.ai, subiendo el `.zip` directamente.
 
-1. Descarga **[`dist/codigo-civil-formulacion-juridica.zip`](./dist/codigo-civil-formulacion-juridica.zip)**.
+1. Descarga **[`codigo-civil-formulacion-juridica.zip`](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases/latest/download/codigo-civil-formulacion-juridica.zip)**.
 2. En Perplexity, entra en la gestión de **Skills** y elige **subir / importar skill**.
 3. Selecciona el archivo `.zip` descargado.
 4. Se invoca igual que en Claude: `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`).
@@ -151,7 +152,7 @@ Perplexity admite el mismo paquete de skill que Claude.ai, subiendo el `.zip` di
 
 Mistral admite Skills en su espacio **Work**, a partir de la carpeta del skill descomprimida.
 
-1. Descarga **[`dist/codigo-civil-formulacion-juridica.zip`](./dist/codigo-civil-formulacion-juridica.zip)** y **descomprímelo**.
+1. Descarga **[`codigo-civil-formulacion-juridica.zip`](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases/latest/download/codigo-civil-formulacion-juridica.zip)** y **descomprímelo**.
 2. En Mistral AI, dentro del espacio **Work**, abre la sección de **Skills**.
 3. Selecciona la **carpeta** resultante (`codigo-civil-formulacion-juridica/`, la que contiene `SKILL.md`).
 4. Se invoca igual que en las demás plataformas: `/codigo-civil-formulacion-juridica` seguido opcionalmente del modo (`alternativas`, `lagunas`, `riesgo`, `auditoria`).
@@ -246,14 +247,11 @@ codigo-civil-formulacion-juridica/
 │       ├── flujo.md         # Razonamiento de los seis pasos + apéndice canónico
 │       └── plantilla-caso.md # Formato de entrada para el jurista
 ├── scripts/
-│   └── build-dist.sh        # Regenera dist/ desde skills/
+│   └── build-dist.sh        # Regenera dist/ (local, no versionado) desde skills/
 ├── LICENSE                  # CC BY 4.0
 ├── README.md                # Este archivo
 ├── CHANGELOG.md             # Historial de versiones
 ├── .gitignore
-├── dist/
-│   ├── codigo-civil-formulacion-juridica.zip    # Paquete de instalación para Claude.ai
-│   └── codigo-civil-formulacion-juridica.skill  # Mismo paquete, extensión alternativa
 ├── docs/
 │   └── codigo-civil-formulacion-juridica-manual-v0.3.pdf
 └── tests/
@@ -264,7 +262,7 @@ codigo-civil-formulacion-juridica/
     └── test-E-mercantil-concurso.md
 ```
 
-El paquete de `dist/` es ligero: contiene solo los archivos que el skill necesita en tiempo de ejecución (`SKILL.md`, `flujo.md`, `plantilla-caso.md`) más `LICENSE`. El directorio `tests/` agrupa los cinco enunciados sintéticos usados durante el desarrollo y queda fuera del paquete instalable; sirve como material de referencia para colaboradores y para futuras iteraciones.
+El paquete de la Release es ligero: contiene solo los archivos que el skill necesita en tiempo de ejecución (`SKILL.md`, `flujo.md`, `plantilla-caso.md`) más `LICENSE`. El directorio `tests/` agrupa los cinco enunciados sintéticos usados durante el desarrollo y queda fuera del paquete instalable; sirve como material de referencia para colaboradores y para futuras iteraciones.
 
 ---
 

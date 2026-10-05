@@ -40,3 +40,6 @@ borradores/
 casos-reales/
 casos-cliente/
 *.caso-real.md
+
+# Paquetes generados por scripts/build-dist.sh: se publican en Releases, no en el repo
+dist/
