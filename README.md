@@ -276,6 +276,14 @@ El primer skill produce un texto seudonimizado con cronología consistente, apto
 
 ---
 
+## Privacidad y tratamiento de datos
+
+Este plugin **no recopila, almacena ni transmite datos**. Es un conjunto de instrucciones en texto (Markdown): no incluye servidores MCP, conectores, scripts de ejecución ni llamadas a servicios externos, y el autor no opera ningún servicio que reciba información de quien lo usa. Todo el procesamiento ocurre dentro de la conversación del usuario con la plataforma de IA que haya elegido (Claude, ChatGPT, Perplexity, Mistral u otra), y el tratamiento que esa plataforma haga de la conversación se rige por sus propias condiciones y política de privacidad.
+
+El skill **no está diseñado para recibir datos identificables de partes reales**: pseudonimiza el caso en origen antes de pegarlo (véase «Modo recomendado de uso»).
+
+---
+
 ## Disclaimer
 
 Este skill es una **herramienta metodológica experimental sin validación formal**. Lo que produce es un **andamio de calificaciones**; no es dictamen jurídico, no es consulta legal, no es estrategia procesal. El uso real con casos reales es responsabilidad exclusiva del jurista habilitado que lo emplee y debe ajustarse al marco normativo aplicable (RGPD, LOPDGDD, Estatuto General de la Abogacía, secreto profesional del art. 542.3 LOPJ).
