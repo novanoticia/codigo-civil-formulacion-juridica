@@ -27,7 +27,7 @@ Estado a 2026-10-08, tras la versión 0.5.0 (`main` en `68d4bee`). Lo que aquí 
 
 ## Documentación
 
-- **Manual PDF** (`docs/codigo-civil-formulacion-juridica-manual-v0.3.pdf`): sigue en v0.3 y no recoge los cambios de la 0.5.0. Hay que sustituirlo por una versión actualizada.
+- **Manual PDF**: existe la versión 0.5 (`docs/codigo-civil-formulacion-juridica-manual-v0.5.pdf`), generada desde HTML. Queda pendiente su revisión humana. La v0.3 se conserva como historial.
 
 ## Cambios de repositorio pendientes de integrar
 

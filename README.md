@@ -26,7 +26,7 @@ Skill para asistentes conversacionales (Claude de Anthropic; también compatible
 
 Antes de probar el skill, conviene leer el manual profesional. Explica encuadre, presupuestos deontológicos, anatomía de la salida, modos de invocación, convenciones de marcado, reglas duras transversales, limitaciones conocidas, recomendaciones de uso prudente y autoría:
 
-📄 **[Manual de uso para profesionales del derecho (PDF, v0.3)](./docs/codigo-civil-formulacion-juridica-manual-v0.3.pdf)**
+📄 **[Manual de uso para profesionales del derecho (PDF, v0.5)](./docs/codigo-civil-formulacion-juridica-manual-v0.5.pdf)**
 
 Es un documento pensado para leer una vez antes del primer uso. Sin esa lectura, hay riesgo de tratar la herramienta como caja negra, lo que en este caso significa creer que produce dictamen jurídico cuando solo produce un andamio de calificaciones a contrastar por el jurista responsable.
 
@@ -280,7 +280,8 @@ codigo-civil-formulacion-juridica/
 ├── CHANGELOG.md             # Historial de versiones
 ├── .gitignore
 ├── docs/
-│   └── codigo-civil-formulacion-juridica-manual-v0.3.pdf
+│   ├── codigo-civil-formulacion-juridica-manual-v0.3.pdf
+│   └── codigo-civil-formulacion-juridica-manual-v0.5.pdf
 └── tests/
     ├── test-A-vicios-caducidad.md
     ├── test-B-sucesiones-foral.md
