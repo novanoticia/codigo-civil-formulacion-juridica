@@ -36,7 +36,7 @@ Cambio de idiomas y de fuentes forales. El razonamiento de los seis pasos, las r
 - La regla de idioma la aplica el modelo siguiendo `SKILL.md`; no hay ningún programa que la aplique.
 - El mapa foral se basa sobre todo en fuentes secundarias. Solo tienen nivel «oficial» las entradas con enlace a un boletín o a un sitio institucional. Valencia figura como anulada por el Tribunal Constitucional según fuente secundaria. Quedan pendientes el nombre catalán de Baleares y el euskera de Navarra. Los demás libros del Código civil de Cataluña no están en el mapa.
 - El manual PDF sigue en v0.3 y no recoge estos cambios.
-- Los CI no han corrido en ningún runner. La verificación automática es local.
+- El workflow `validar` se ha ejecutado en GitHub Actions sobre la rama de trabajo, en el commit `cce1a72` (ejecución 37728724359, conclusión: éxito, los cinco pasos en verde). No se ha ejecutado todavía sobre un Pull Request ni sobre `main`.
 - Un paquete v0.4 o anterior no incluye `idiomas/`: quien lo tenga instalado debe reinstalar el paquete completo.
 
 *Texto elaborado con asistencia de IA; requiere revisión humana.*
