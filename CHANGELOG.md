@@ -4,7 +4,44 @@ Historial de versiones del skill `codigo-civil-formulacion-juridica`. Las versio
 
 ---
 
-## v0.4 — Estado actual
+## v0.5 — Estado actual
+
+Cambio de idiomas y de fuentes forales. El razonamiento de los seis pasos, las reglas duras y la plantilla de caso **no cambian**. La salida en español sí cambia en un punto: lleva ahora el aviso de IA en la primera línea (excepción aprobada).
+
+**Añadido**
+
+- Salida en **español, inglés, catalán, euskera o gallego**, elegida con la marca `idioma=xx` en el mensaje del usuario. Sin marca, español. Sección «Idioma de la salida» en `SKILL.md`.
+- Catálogos de textos fijos en `skills/codigo-civil-formulacion-juridica/idiomas/`: 22 claves por idioma, con el mismo conjunto de claves en los cinco.
+- Aviso de IA en la primera línea de cada salida, en el idioma elegido.
+- Aviso de «traducción sin revisar» en inglés, catalán, euskera y gallego.
+- `derecho-foral.md`: mapa de 8 entradas de fuentes forales (Galicia, País Vasco, Cataluña libro IV, Aragón, Navarra, Baleares, y dos normas valencianas), con nivel de fuente, vigencia, nombres en catalán, euskera y gallego, y regla de derivación. No reproduce texto legal.
+- Pruebas: `scripts/validar-idiomas.sh` (catálogos, bloques, mapa y versiones), `scripts/pruebas-validador.sh` (33 mutantes, todos detectados), `scripts/pruebas-empaquetado.sh` (contenido exacto del zip) y `tests/escenarios-idioma.md` (13 escenarios).
+
+**Cambiado**
+
+- **Excepción aprobada en español:** la primera línea de la salida es ahora el aviso de IA. Antes solo aparecía en la nota final. Si se quiere retirar, basta con quitar el punto 1 de la sección «Idioma de la salida».
+- `scripts/build-dist.sh`: copia también `idiomas/`. Es la única línea cambiada en los scripts.
+- Versión **0.5.0** en `plugin.json`, `.claude-plugin/plugin.json` y `.claude-plugin/marketplace.json`.
+- Sin líneas existentes modificadas en `SKILL.md` ni en `flujo.md`: los cambios son adiciones delimitadas por marcas.
+
+**Corregido**
+
+- Versiones desfasadas: los manifiestos decían 0.3.0, el README y el CHANGELOG decían v0.4, y `SKILL.md` decía v0.3 en su sección de versión. Ahora todo dice 0.5.
+- Referencias forales de la versión preliminar de este trabajo: una «Ley 5/2015» valenciana que no es civil valenciana, y una «Ley 5/2024» balear que no existe en las fuentes consultadas. No están en el mapa.
+
+**Limitaciones**
+
+- Las traducciones de inglés, catalán, euskera y gallego son **borrador de IA sin revisión humana**. No hay revisor. El euskera es el de mayor riesgo.
+- Los escenarios de idioma (`tests/escenarios-idioma.md`) están **pendientes de ejecución**. Su nivel de verificación será «simulado», no automático.
+- La regla de idioma la aplica el modelo siguiendo `SKILL.md`; no hay ningún programa que la aplique.
+- El mapa foral se basa sobre todo en fuentes secundarias. Solo tienen nivel «oficial» las entradas con enlace a un boletín o a un sitio institucional. Valencia figura como anulada por el Tribunal Constitucional según fuente secundaria. Quedan pendientes el nombre catalán de Baleares y el euskera de Navarra. Los demás libros del Código civil de Cataluña no están en el mapa.
+- El manual PDF sigue en v0.3 y no recoge estos cambios.
+- Los CI no han corrido en ningún runner. La verificación automática es local.
+- Un paquete v0.4 o anterior no incluye `idiomas/`: quien lo tenga instalado debe reinstalar el paquete completo.
+
+*Texto elaborado con asistencia de IA; requiere revisión humana.*
+
+## v0.4
 
 Cambio de empaquetado, **sin tocar el contenido jurídico**: ni el `SKILL.md`, ni el flujo de seis pasos, ni la plantilla de caso, ni los criterios deontológicos. Solo cambia dónde viven los archivos y cómo se instala.
 

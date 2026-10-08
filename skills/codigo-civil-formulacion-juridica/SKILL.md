@@ -105,6 +105,8 @@ Esta sección fija el idioma de toda la respuesta. Se aplica antes que cualquier
 
 ## Versión
 
+v0.5 — idiomas y derecho foral. Cambios respecto a v0.4: salida en español, inglés, catalán, euskera o gallego con la marca `idioma=xx`; aviso de IA en la primera línea de cada salida (excepción aprobada en español); mapa de fuentes forales (`derecho-foral.md`) con nivel de fuente y vigencia. El razonamiento de los seis pasos y las reglas duras no cambian. Las traducciones son borrador sin revisión humana, y los escenarios de idioma están pendientes de ejecución.
+
 v0.3 — tercer draft tras segunda ronda de tests (familia con custodia disputada y mediación familiar autonómica andaluza; mercantil entre empresarios con concurso del deudor en horizonte). Cambios respecto a v0.2:
 - Generalización de la limitación "mapa de derivación, no formulación cerrada" a toda materia con centro normativo fuera del CC (no solo foral): concurso, mercantil, urbanismo, propiedad intelectual, sectoriales, etc.
 - Incorporación al paso 5 de las matizaciones del dispositivo en procedimientos especiales (art. 752 LEC para familia, capacidad, filiación y jurisdicción voluntaria; régimen específico TRLC en concurso).

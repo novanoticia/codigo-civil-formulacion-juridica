@@ -157,6 +157,21 @@ else
 fi
 grep -q 'derecho-foral.md' "$FLUJO_MD_F" || err "flujo.md no remite a derecho-foral.md"
 
+# 6. Versión: manifiestos, README, SKILL.md y CHANGELOG deben decir lo mismo
+V_PLUGIN="$(sed -n 's/.*"version": "\([^"]*\)".*/\1/p' "$ROOT/plugin.json" | head -1)"
+V_CLAUDE="$(sed -n 's/.*"version": "\([^"]*\)".*/\1/p' "$ROOT/.claude-plugin/plugin.json" | head -1)"
+V_MKT="$(sed -n 's/.*"version": "\([^"]*\)".*/\1/p' "$ROOT/.claude-plugin/marketplace.json" | head -1)"
+[ "$V_PLUGIN" = "$V_CLAUDE" ] && [ "$V_CLAUDE" = "$V_MKT" ] \
+  || err "versiones de los manifiestos distintas: plugin.json=$V_PLUGIN, .claude-plugin/plugin.json=$V_CLAUDE, marketplace.json=$V_MKT"
+MM="${V_PLUGIN%.*}"
+V_README="$(sed -n 's/^> \*\*Versión actual:\*\* v\(.*\)$/\1/p' "$ROOT/README.md" | head -1)"
+V_SKILL="$(sed -n 's/^v\([0-9.]*\) — .*/\1/p' "$SKILL_MD" | head -1)"
+V_LOG="$(sed -n 's/^## v\([0-9.]*\).*/\1/p' "$ROOT/CHANGELOG.md" | head -1)"
+[ "$V_README" = "$MM" ] || err "README dice v$V_README; el manifiesto dice $V_PLUGIN"
+[ "$V_SKILL" = "$MM" ] || err "SKILL.md dice v$V_SKILL en su sección de versión; el manifiesto dice $V_PLUGIN"
+[ "$V_LOG" = "$MM" ] || err "CHANGELOG.md empieza en v$V_LOG; el manifiesto dice $V_PLUGIN"
+grep -q "(v$MM)" "$ROOT/README.md" || err "la cita del README no dice (v$MM)"
+
 if [ "$ERRORES" -gt 0 ]; then
   echo "❌ $ERRORES error(es) en los catálogos"
   exit 1

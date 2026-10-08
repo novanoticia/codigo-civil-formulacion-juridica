@@ -10,7 +10,7 @@
       "name": "codigo-civil-formulacion-juridica",
       "source": "./",
       "description": "Apoya a juristas a estructurar la formulación jurídica de casos ya estudiados, con el Código Civil español como norma de referencia. Cinco modos (completo, alternativas, lagunas, riesgo y auditoría). No sustituye el asesoramiento profesional ni admite datos identificables de partes reales.",
-      "version": "0.3.0",
+      "version": "0.5.0",
       "homepage": "https://github.com/novanoticia/codigo-civil-formulacion-juridica",
       "category": "productivity",
       "keywords": [

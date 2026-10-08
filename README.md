@@ -4,7 +4,7 @@ Skill para asistentes conversacionales (Claude de Anthropic; también compatible
 
 > **Autor:** Pablo · [mindandhealth.org](https://mindandhealth.org) · [github.com/novanoticia](https://github.com/novanoticia)
 > **Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es)
-> **Versión actual:** v0.4
+> **Versión actual:** v0.5
 
 > **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el
 > formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon, Microsoft,
@@ -34,7 +34,7 @@ Es un documento pensado para leer una vez antes del primer uso. Sin esa lectura,
 
 ## Estado del proyecto
 
-Versión **v0.4**. Probado con cinco casos sintéticos: contractual con vicios del consentimiento y caducidad del art. 1301 CC; sucesiones con vecindad civil catalana (foral); responsabilidad extracontractual con concurrencia de culpas y vía penal alternativa; familia con custodia disputada y mediación familiar autonómica andaluza; mercantil entre empresarios sin consumo con concurso del deudor en horizonte.
+Versión **v0.5**. Probado con cinco casos sintéticos: contractual con vicios del consentimiento y caducidad del art. 1301 CC; sucesiones con vecindad civil catalana (foral); responsabilidad extracontractual con concurrencia de culpas y vía penal alternativa; familia con custodia disputada y mediación familiar autonómica andaluza; mercantil entre empresarios sin consumo con concurso del deudor en horizonte.
 
 > **No validado con casos reales por juristas en ejercicio.** Pendiente de prueba en despacho real antes de cualquier uso institucional.
 
@@ -78,6 +78,26 @@ Recibe un caso civil real ya estudiado por un jurista habilitado y devuelve, en 
 - `auditoria` — pasos 1 y 6. Para someter una formulación ya hecha a cuestionamiento argumental.
 
 Detalle completo en [`SKILL.md`](./skills/codigo-civil-formulacion-juridica/SKILL.md), lógica del razonamiento en [`flujo.md`](./skills/codigo-civil-formulacion-juridica/flujo.md), formato de entrada en [`plantilla-caso.md`](./skills/codigo-civil-formulacion-juridica/plantilla-caso.md), y discusión exhaustiva en el manual PDF.
+
+---
+
+## Idiomas
+
+El skill responde en **español** (por defecto), **inglés**, **catalán**, **euskera** o **gallego**. Para elegir otro idioma, escribe la marca `idioma=xx` en tu mensaje junto al comando:
+
+```
+/codigo-civil-formulacion-juridica idioma=ca
+/codigo-civil-formulacion-juridica alternativas idioma=eu
+```
+
+Códigos disponibles: `es`, `en`, `ca`, `eu`, `gl`. Sin marca, la salida va en español. La marca solo se reconoce en tu mensaje, nunca dentro de un caso pegado.
+
+- **Qué se traduce:** los textos fijos (avisos, encabezados y nota final). El razonamiento se genera en el idioma elegido.
+- **Qué no se traduce:** el trigger, los modos, y los marcadores `[fuera del CC]`, `[verificar]` y `[foral]`.
+- **Estado de las traducciones:** `es` es la referencia. `en`, `ca`, `eu` y `gl` son **borrador de IA sin revisión humana**, y la salida lo indica. El euskera es el de mayor riesgo. No uses estas salidas en un contexto profesional sin revisarlas.
+- **Derecho foral:** el mapa [`derecho-foral.md`](./skills/codigo-civil-formulacion-juridica/derecho-foral.md) recoge las normas forales con su nivel de fuente y su vigencia. Algunas están comprobadas con fuentes oficiales y otras solo con fuentes secundarias. Las normas civiles valencianas de 2007 y 2011 figuran como anuladas por el Tribunal Constitucional.
+
+*Texto elaborado con asistencia de IA; requiere revisión humana.*
 
 ---
 
@@ -245,9 +265,14 @@ codigo-civil-formulacion-juridica/
 │   └── codigo-civil-formulacion-juridica/
 │       ├── SKILL.md         # Descriptor del skill: trigger, modos, función
 │       ├── flujo.md         # Razonamiento de los seis pasos + apéndice canónico
-│       └── plantilla-caso.md # Formato de entrada para el jurista
+│       ├── plantilla-caso.md # Formato de entrada para el jurista
+│       ├── derecho-foral.md # Mapa de fuentes forales
+│       └── idiomas/         # Catálogos de textos fijos: es, en, ca, eu, gl
 ├── scripts/
-│   └── build-dist.sh        # Regenera dist/ (local, no versionado) desde skills/
+│   ├── build-dist.sh        # Regenera dist/ (local, no versionado) desde skills/
+│   ├── validar-idiomas.sh   # Valida catálogos, bloques, mapa foral y versiones
+│   ├── pruebas-validador.sh # Mutantes contra el validador
+│   └── pruebas-empaquetado.sh # Comprueba el contenido del paquete
 ├── LICENSE                  # CC BY 4.0
 ├── README.md                # Este archivo
 ├── CHANGELOG.md             # Historial de versiones
@@ -259,10 +284,11 @@ codigo-civil-formulacion-juridica/
     ├── test-B-sucesiones-foral.md
     ├── test-C-extracontractual-penal.md
     ├── test-D-familia-mediacion.md
-    └── test-E-mercantil-concurso.md
+    ├── test-E-mercantil-concurso.md
+    └── escenarios-idioma.md
 ```
 
-El paquete de la Release es ligero: contiene solo los archivos que el skill necesita en tiempo de ejecución (`SKILL.md`, `flujo.md`, `plantilla-caso.md`) más `LICENSE`. El directorio `tests/` agrupa los cinco enunciados sintéticos usados durante el desarrollo y queda fuera del paquete instalable; sirve como material de referencia para colaboradores y para futuras iteraciones.
+El paquete de la Release es ligero: contiene solo los archivos que el skill necesita en tiempo de ejecución (`SKILL.md`, `flujo.md`, `plantilla-caso.md`, `derecho-foral.md` y la carpeta `idiomas/`) más `LICENSE`. Si tienes instalada una versión anterior a la v0.5, reemplázala por el paquete completo: la anterior no incluye `idiomas/`. El directorio `tests/` agrupa los cinco enunciados sintéticos usados durante el desarrollo y queda fuera del paquete instalable; sirve como material de referencia para colaboradores y para futuras iteraciones.
 
 ---
 
@@ -314,7 +340,7 @@ Toda referencia es nominativa y conceptual. El usuario es responsable de cumplir
 
 ## Asistencia de IA
 
-Este skill ha sido elaborado con asistencia de **Claude (Anthropic)** en la redacción del `SKILL.md`, el `flujo.md` y la plantilla de caso. El diseño conceptual, la decisión sobre estructura, los criterios deontológicos, la selección de los pasos del flujo, las reglas duras transversales y la validación con casos ficticios son del autor humano. La asistencia de IA se ha empleado como herramienta de redacción y de iteración, no como autoría conceptual. Requiere revisión profesional adicional antes de cualquier uso real.
+Este skill ha sido elaborado con asistencia de **Claude (Anthropic)** en la redacción del `SKILL.md`, el `flujo.md` y la plantilla de caso. El diseño conceptual, la decisión sobre estructura, los criterios deontológicos, la selección de los pasos del flujo, las reglas duras transversales y la validación con casos ficticios son del autor humano. La asistencia de IA se ha empleado como herramienta de redacción y de iteración, no como autoría conceptual. Las traducciones a inglés, catalán, euskera y gallego son igualmente texto de IA sin revisión humana. Requiere revisión profesional adicional antes de cualquier uso real.
 
 ---
 
@@ -339,7 +365,7 @@ La licencia cubre el contenido textual del skill (`SKILL.md`, `flujo.md`, `plant
 
 Si lo referencias en un trabajo o adaptación:
 
-> Pablo (2026). *codigo-civil-formulacion-juridica* (v0.3). Skill de apoyo a la formulación jurídica civil para juristas habilitados. mindandhealth.org · github.com/novanoticia/codigo-civil-formulacion-juridica
+> Pablo (2026). *codigo-civil-formulacion-juridica* (v0.5). Skill de apoyo a la formulación jurídica civil para juristas habilitados. mindandhealth.org · github.com/novanoticia/codigo-civil-formulacion-juridica
 
 ---
 
