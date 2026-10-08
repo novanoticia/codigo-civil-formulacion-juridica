@@ -34,6 +34,8 @@ trap 'rm -rf "$STAGE"' EXIT
 
 mkdir -p "$STAGE/$NOMBRE"
 cp "$ORIGEN"/*.md "$STAGE/$NOMBRE/"
+# Catálogos de idioma (desde v0.5): carpeta propia, no cubierta por *.md
+cp -r "$ORIGEN/idiomas" "$STAGE/$NOMBRE/"
 cp LICENSE "$STAGE/$NOMBRE/"
 
 mkdir -p dist
