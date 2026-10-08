@@ -40,6 +40,10 @@ Antes del paso 1, verifica y avisa explícitamente al inicio si concurre alguno 
 - **Persona con medidas de apoyo (discapacidad).** Aviso: *"Aplica Ley 8/2021 [fuera del CC]; revisar provisión de apoyos, auto judicial, curatela representativa o asistencial. La capacidad de ejercicio se presume; las medidas son de apoyo, no de sustitución salvo excepción."*
 - **Menor de edad como parte.** Aviso: *"Caso con menor; revisar régimen de capacidad (art. 162 CC y conexos), intervención del Ministerio Fiscal cuando proceda, conflicto de intereses con representantes legales, defensor judicial."*
 
+<!-- foral:inicio -->
+- **Mapa foral.** Si concurre vecindad civil foral, consulta `derecho-foral.md` antes de citar una norma, para su nombre oficial y su vigencia. Si la norma figura como `no comprobada` o `anulada`, dilo en la salida y no afirmes vigencia. No cites artículos de una norma foral que el mapa no contenga.
+<!-- foral:fin -->
+
 Si concurren varios, lístalos todos al inicio.
 
 ---

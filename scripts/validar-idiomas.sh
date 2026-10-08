@@ -111,6 +111,52 @@ case "$PRIMERA" in *aviso.ia*) ;; *) err "el aviso de IA no es el primer punto d
 FM="$(awk 'NR==1 && /^---$/{f=1;next} f && /^---$/{exit} f' "$SKILL_MD" | sha256sum | cut -c1-64)"
 [ "$FM" = "$FRONTMATTER_SHA" ] || err "el frontmatter de SKILL.md ha cambiado"
 
+# 5. Mapa de fuentes forales (derecho-foral.md)
+MAPA="$SKILL/derecho-foral.md"
+FLUJO_MD_F="$SKILL/flujo.md"
+if [ ! -f "$MAPA" ]; then
+  err "falta derecho-foral.md"
+else
+  awk '
+    /^## / { n++; next }
+    /^- [a-z_]+: / {
+      k = $0; sub(/^- /, "", k); sub(/: .*/, "", k)
+      v = $0; sub(/^- [a-z_]+: /, "", v)
+      print n "\t" k "\t" v
+    }' "$MAPA" > "$TMP/mapa.tsv"
+  NENT="$(cut -f1 "$TMP/mapa.tsv" | sort -un | wc -l)"
+  [ "$NENT" -ge 1 ] || err "derecho-foral.md no tiene entradas"
+  IDS_DUP="$(awk -F'\t' '$2 == "id" { print $3 }' "$TMP/mapa.tsv" | sort | uniq -d | tr '\n' ' ')"
+  [ -z "$IDS_DUP" ] || err "derecho-foral.md: ids duplicados: $IDS_DUP"
+  for n in $(cut -f1 "$TMP/mapa.tsv" | sort -un); do
+    val() { awk -F'\t' -v n="$n" -v k="$1" '$1 == n && $2 == k { print $3; exit }' "$TMP/mapa.tsv"; }
+    id="$(val id)"
+    for c in id nombre_es nombre_ca nombre_eu nombre_gl nivel_fuente fuente publicacion vigencia ambito materias derivacion; do
+      awk -F'\t' -v n="$n" -v k="$c" '$1 == n && $2 == k { f = 1 } END { exit !f }' "$TMP/mapa.tsv" \
+        || err "derecho-foral.md, entrada $n ($id): falta el campo $c"
+    done
+    nivel="$(val nivel_fuente)"
+    fuente="$(val fuente)"
+    vig="$(val vigencia)"
+    der="$(val derivacion)"
+    case "$nivel" in oficial|"segunda mano"|"no comprobada") ;; *) err "entrada $id: nivel_fuente no válido '$nivel'" ;; esac
+    if [ "$nivel" != "no comprobada" ]; then
+      case "$fuente" in https://*) ;; *) err "entrada $id: nivel '$nivel' exige una fuente https" ;; esac
+    fi
+    case "$vig" in vigente*|anulada*|"no comprobada"*) ;; *) err "entrada $id: vigencia no válida '$vig'" ;; esac
+    [ -n "$der" ] || err "entrada $id: derivacion vacía"
+    [ -n "$(val nombre_es)" ] || err "entrada $id: nombre_es vacío"
+    for l in ca eu gl; do
+      nm="$(val nombre_$l)"
+      [ -n "$nm" ] || err "entrada $id: nombre_$l vacío (usa «no aplica» o «no comprobado»)"
+      case "$nm" in "no aplica"|"no comprobado") ;;
+        *) [ "$nivel" != "no comprobada" ] || err "entrada $id: nombre_$l con texto, pero nivel «no comprobada»" ;;
+      esac
+    done
+  done
+fi
+grep -q 'derecho-foral.md' "$FLUJO_MD_F" || err "flujo.md no remite a derecho-foral.md"
+
 if [ "$ERRORES" -gt 0 ]; then
   echo "❌ $ERRORES error(es) en los catálogos"
   exit 1

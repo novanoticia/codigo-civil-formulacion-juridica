@@ -83,6 +83,13 @@ mutante "cambia la licencia del frontmatter de SKILL.md" SKILL.md "license: CC B
 mutante "pone aviso.foral antes que aviso.ia en el orden" SKILL.md "1. \`aviso.ia\`" 's/^1\. `aviso\.ia`/1. `aviso.foral`/'
 mutante "quita el marcador de inicio del bloque en flujo.md" flujo.md "<!-- i18n:inicio -->" '/^<!-- i18n:inicio -->$/d'
 
+mutante "quita el nombre gallego de la entrada de Galicia" derecho-foral.md "- nombre_gl: Lei 2/2006" '/^- nombre_gl: Lei 2\/2006/d'
+mutante "marca Galicia como no comprobada con nombre gallego presente" derecho-foral.md "- id: galicia-2006" '/^- id: galicia-2006$/,/^- derivacion/ s/nivel_fuente: oficial/nivel_fuente: no comprobada/'
+mutante "quita la fuente de País Vasco" derecho-foral.md "- id: pais-vasco-2015" '/^- id: pais-vasco-2015$/,/^- derivacion/{/^- fuente: /d}'
+mutante "pone una vigencia no válida en Valencia 2007" derecho-foral.md "- id: valencia-2007" '/^- id: valencia-2007$/,/^- derivacion/ s/vigencia: anulada/vigencia: caducada/'
+mutante "nivel de fuente no válido en Baleares" derecho-foral.md "- id: baleares-1990" '/^- id: baleares-1990$/,/^- derivacion/ s/nivel_fuente: segunda mano/nivel_fuente: rumor/'
+mutante "quita la referencia al mapa en flujo.md" flujo.md "derecho-foral.md" 's/derecho-foral\.md/mapa/'
+
 echo "──────────────────────────────────────────"
 echo "Mutantes: $TOTAL · muertos: $MUERTOS · supervivientes: $SUPERVIVIENTES · errores de herramienta: $HERR"
 if [ "$SUPERVIVIENTES" -gt 0 ] || [ "$HERR" -gt 0 ]; then
