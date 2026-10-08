@@ -283,6 +283,10 @@ Avisos iniciales (si concurren: foral, consumidor, discapacidad, menor)
 Nota final
 ```
 
+<!-- i18n:inicio -->
+**Idioma y avisos de la salida.** La salida se escribe en el idioma fijado en la sección «Idioma de la salida» de `SKILL.md`. Los encabezados de la estructura anterior se toman de los catálogos `idiomas/<código>.md` (claves `enc.*`), y la primera línea es siempre `aviso.ia`. El orden y la estructura son los de arriba; la sección de `SKILL.md` prevalece solo en lo que toca al idioma de los textos.
+<!-- i18n:fin -->
+
 La **nota final** debe ser una línea sobria que recuerde:
 
 > Este documento es un andamio de formulación jurídica, no un dictamen ni asesoramiento legal. La decisión profesional corresponde al jurista responsable del caso. Las citas jurisprudenciales marcadas `[verificar]` deben comprobarse en CENDOJ o fuente oficial antes de cualquier uso procesal. Texto generado con asistencia de IA; requiere revisión humana antes de cualquier uso en consulta, dictamen o procedimiento.

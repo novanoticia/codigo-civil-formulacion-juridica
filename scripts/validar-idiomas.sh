@@ -14,6 +14,7 @@ ROOT="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 SKILL="$ROOT/skills/codigo-civil-formulacion-juridica"
 IDIOMAS="$SKILL/idiomas"
 LANGS="es en ca eu gl"
+FRONTMATTER_SHA="d4d0e58a52cb1bf1a5012b91ef9c468cbd4690c421dd4668c51b4e4cefed2c6a"
 ESTADOS="referencia borrador-ia experimental revisado"
 
 TMP="$(mktemp -d)"
@@ -86,6 +87,29 @@ while IFS=$'\t' read -r k orig riesgo valor; do
     [ "$v2" != "$valor" ] || err "$l.md: '$k' sin traducir (igual que es.md)"
   done
 done < "$TMP/es.tsv"
+
+# 4. Bloque de idioma en SKILL.md y flujo.md (delimitado por marcadores)
+SKILL_MD="$SKILL/SKILL.md"
+FLUJO_MD="$SKILL/flujo.md"
+for f in "$SKILL_MD" "$FLUJO_MD"; do
+  ini="$(grep -c '^<!-- i18n:inicio -->$' "$f")"
+  fin="$(grep -c '^<!-- i18n:fin -->$' "$f")"
+  [ "$ini" = 1 ] && [ "$fin" = 1 ] \
+    || err "$(basename "$f"): debe tener un bloque i18n (marcas de inicio: $ini, de fin: $fin)"
+done
+BLOQUE="$(sed -n '/^<!-- i18n:inicio -->$/,/^<!-- i18n:fin -->$/p' "$SKILL_MD")"
+BYTES="$(printf '%s' "$BLOQUE" | wc -c)"
+PRESUPUESTO=4000
+[ "$BYTES" -le "$PRESUPUESTO" ] || err "bloque de idioma de SKILL.md: $BYTES bytes, presupuesto $PRESUPUESTO"
+for c in es en ca eu gl; do
+  printf '%s' "$BLOQUE" | grep -q "idiomas/$c.md" || err "el bloque de SKILL.md no menciona idiomas/$c.md"
+done
+printf '%s' "$BLOQUE" | grep -q 'idioma=xx' || err "el bloque de SKILL.md no documenta la marca idioma=xx"
+PRIMERA="$(printf '%s\n' "$BLOQUE" | grep -m1 '^1\. ')"
+case "$PRIMERA" in *aviso.ia*) ;; *) err "el aviso de IA no es el primer punto del orden de avisos" ;; esac
+# Frontmatter: huella fijada en la línea base (commit ec86111); cambiarla exige decidirlo
+FM="$(awk 'NR==1 && /^---$/{f=1;next} f && /^---$/{exit} f' "$SKILL_MD" | sha256sum | cut -c1-64)"
+[ "$FM" = "$FRONTMATTER_SHA" ] || err "el frontmatter de SKILL.md ha cambiado"
 
 if [ "$ERRORES" -gt 0 ]; then
   echo "❌ $ERRORES error(es) en los catálogos"
