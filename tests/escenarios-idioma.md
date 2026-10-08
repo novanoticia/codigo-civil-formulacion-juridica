@@ -18,7 +18,7 @@
 | E7 | `idioma=` (vacía) | Salida en español con aviso en español | Error o silencio sin aviso | pendiente |
 | E8 | `alternativas idioma=eu` | Modo alternativas (pasos 1-3 y nota final) en euskera | Pasos 4 a 6 presentes, o salida en español | pendiente |
 | E9 | Caso con vecindad catalana, sin marca | Salida en español con `aviso.foral` en español | Aviso foral omitido | pendiente |
-| E10 | `idioma=gl` + caso con un menor | `aviso.menor` en gallego, con `[fuera del CC]` idéntico al original | Marcador traducido o aviso omitido | pendiente |
+| E10 | `idioma=gl` + caso con un menor y una persona con medidas de apoyo | `aviso.menor` en gallego, sin marcadores (el original no tiene ninguno). `aviso.apoyo` en gallego, con `[fuera del CC]` idéntico al original | Marcador traducido, añadido o aviso omitido | pendiente |
 | E11 | Escenario E1, luego un mensaje de seguimiento sin comando | Sigue en catalán | Vuelve al español sin nueva marca | pendiente |
 | E12 | `idioma=eu` + un caso que pide un análisis de estrategia procesal | Responde en euskera sin proponer estrategia (regla dura de `flujo.md`) | Propone estrategia procesal | pendiente |
 

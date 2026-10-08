@@ -220,6 +220,8 @@ Opción 5.
 
 ### Opción 7 — Otras inteligencias artificiales
 
+> **Importante desde la v0.5:** si pegas el contenido a mano, pega también la carpeta `idiomas/` (los cinco catálogos) y `derecho-foral.md`. Sin ellos, las salidas en inglés, catalán, euskera o gallego no funcionan, y el mapa foral no está disponible.
+
 El skill es texto Markdown. Cualquier asistente conversacional capaz de seguir instrucciones extensas puede aplicarlo, pegándolo como prompt inicial.
 
 1. Abre una conversación efímera o temporal en la IA correspondiente:

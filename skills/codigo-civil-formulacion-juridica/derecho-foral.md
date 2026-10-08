@@ -82,11 +82,11 @@ Este fichero no reproduce texto legal. Para cada norma indica su nombre oficial,
 - nombre_gl: no aplica
 - nivel_fuente: oficial
 - fuente: https://www.boe.es/boe/dias/1973/03/07/pdfs/R04537-05082.pdf
-- publicacion: BOE de 7 de marzo de 1973. Discrepancia pendiente: un artículo académico la cita como Decreto-ley 1/1973, de 3 de marzo, publicado en el BOE de 3 de marzo.
+- publicacion: BOE de 7 de marzo de 1973. Identificación confirmada por una base de datos jurídica y por la fecha del BOE, pero el acceso directo al BOE no ha podido comprobarse desde el entorno de trabajo. Un único artículo académico la cita como Decreto-ley 1/1973, de 3 de marzo; no se ha confirmado.
 - vigencia: vigente, con modificaciones posteriores (Ley Foral 21/2019, según fuente secundaria)
 - ambito: Navarra
 - materias: derecho civil foral de Navarra (Fuero Nuevo): sucesiones, régimen económico matrimonial y otras instituciones.
-- derivacion: caso con vecindad civil navarra. Avisar de la foralidad, indicar la discrepancia sobre la forma del instrumento, y remitir al texto consolidado del BOE y a la Ley Foral vigente.
+- derivacion: caso con vecindad civil navarra. Avisar de la foralidad y remitir al texto consolidado del BOE y a la Ley Foral vigente.
 
 ## Baleares
 
