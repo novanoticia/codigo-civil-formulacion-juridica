@@ -1,0 +1,28 @@
+# Validación del skill: catálogos de idioma, bloques, mapa foral, versiones,
+# pruebas de mutación y contenido del paquete.
+#
+# El nombre del check obligatorio es el id del job («validar»). Solo se
+# confirma al leerlo en una ejecución real.
+name: validar
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validador de catálogos, bloques, mapa y versiones
+        run: bash scripts/validar-idiomas.sh
+
+      - name: Pruebas de mutación del validador
+        run: bash scripts/pruebas-validador.sh
+
+      - name: Contenido del paquete
+        run: bash scripts/pruebas-empaquetado.sh

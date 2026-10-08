@@ -40,6 +40,10 @@ Antes del paso 1, verifica y avisa explícitamente al inicio si concurre alguno 
 - **Persona con medidas de apoyo (discapacidad).** Aviso: *"Aplica Ley 8/2021 [fuera del CC]; revisar provisión de apoyos, auto judicial, curatela representativa o asistencial. La capacidad de ejercicio se presume; las medidas son de apoyo, no de sustitución salvo excepción."*
 - **Menor de edad como parte.** Aviso: *"Caso con menor; revisar régimen de capacidad (art. 162 CC y conexos), intervención del Ministerio Fiscal cuando proceda, conflicto de intereses con representantes legales, defensor judicial."*
 
+<!-- foral:inicio -->
+- **Mapa foral.** Si concurre vecindad civil foral, consulta `derecho-foral.md` antes de citar una norma, para su nombre oficial y su vigencia. Si la norma figura como `no comprobada` o `anulada`, dilo en la salida y no afirmes vigencia. No cites artículos de una norma foral que el mapa no contenga.
+<!-- foral:fin -->
+
 Si concurren varios, lístalos todos al inicio.
 
 ---
@@ -282,6 +286,10 @@ Avisos iniciales (si concurren: foral, consumidor, discapacidad, menor)
 6. Cuestionamiento argumental
 Nota final
 ```
+
+<!-- i18n:inicio -->
+**Idioma y avisos de la salida.** La salida se escribe en el idioma fijado en la sección «Idioma de la salida» de `SKILL.md`. Los encabezados de la estructura anterior se toman de los catálogos `idiomas/<código>.md` (claves `enc.*`), y la primera línea es siempre `aviso.ia`. El orden y la estructura son los de arriba; la sección de `SKILL.md` prevalece solo en lo que toca al idioma de los textos.
+<!-- i18n:fin -->
 
 La **nota final** debe ser una línea sobria que recuerde:
 
