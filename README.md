@@ -1,5 +1,7 @@
 # codigo-civil-formulacion-juridica
 
+[![Versión actual en main](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fnovanoticia%2Fcodigo-civil-formulacion-juridica%2Fmain%2Fplugin.json&query=%24.version&prefix=v&label=Versi%C3%B3n%20actual%20en%20main&color=blue)](https://github.com/novanoticia/codigo-civil-formulacion-juridica/blob/main/plugin.json)
+
 Skill para asistentes conversacionales (Claude de Anthropic; también compatible con las **Skills de ChatGPT**, de **Perplexity** y de **Mistral AI**) de **apoyo a la formulación jurídica de casos civiles** ya estudiados por jurista habilitado, usando el **Código Civil español** como referencia normativa primaria. Estructura el caso, jerarquiza calificaciones, identifica descartes obligatorios, detecta lagunas de información y de Derecho, anticipa riesgos procesales y somete la propia formulación a cuestionamiento argumental. **No emite dictamen ni asesora a la parte.**
 
 > **Autor:** Pablo · [mindandhealth.org](https://mindandhealth.org) · [github.com/novanoticia](https://github.com/novanoticia)
