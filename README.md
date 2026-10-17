@@ -6,7 +6,7 @@
 Skill para asistentes conversacionales (Claude de Anthropic; también compatible con las **Skills de ChatGPT**, de **Perplexity** y de **Mistral AI**) de **apoyo a la formulación jurídica de casos civiles** ya estudiados por jurista habilitado, usando el **Código Civil español** como referencia normativa primaria. Estructura el caso, jerarquiza calificaciones, identifica descartes obligatorios, detecta lagunas de información y de Derecho, anticipa riesgos procesales y somete la propia formulación a cuestionamiento argumental. **No emite dictamen ni asesora a la parte.**
 
 > **Autor:** Pablo · [mindandhealth.org](https://mindandhealth.org) · [github.com/novanoticia](https://github.com/novanoticia)
-> **Licencia:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.es)
+> **Licencia:** [Apache-2.0](LICENSE)
 > **Versión actual:** v0.5
 
 > **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el
@@ -278,7 +278,8 @@ codigo-civil-formulacion-juridica/
 │   ├── validar-idiomas.sh   # Valida catálogos, bloques, mapa foral y versiones
 │   ├── pruebas-validador.sh # Mutantes contra el validador
 │   └── pruebas-empaquetado.sh # Comprueba el contenido del paquete
-├── LICENSE                  # CC BY 4.0
+├── LICENSE                  # Apache-2.0
+├── NOTICE                   # Autoría, avisos y alcance de la licencia
 ├── README.md                # Este archivo
 ├── CHANGELOG.md             # Historial de versiones
 ├── .gitignore
@@ -294,7 +295,7 @@ codigo-civil-formulacion-juridica/
     └── escenarios-idioma.md
 ```
 
-El paquete de la Release es ligero: contiene solo los archivos que el skill necesita en tiempo de ejecución (`SKILL.md`, `flujo.md`, `plantilla-caso.md`, `derecho-foral.md` y la carpeta `idiomas/`) más `LICENSE`. Si tienes instalada una versión anterior a la v0.5, reemplázala por el paquete completo: la anterior no incluye `idiomas/`. El directorio `tests/` agrupa los cinco enunciados sintéticos usados durante el desarrollo y queda fuera del paquete instalable; sirve como material de referencia para colaboradores y para futuras iteraciones.
+El paquete de la Release es ligero: contiene solo los archivos que el skill necesita en tiempo de ejecución (`SKILL.md`, `flujo.md`, `plantilla-caso.md`, `derecho-foral.md` y la carpeta `idiomas/`) más `LICENSE` y `NOTICE`. Si tienes instalada una versión anterior a la v0.5, reemplázala por el paquete completo: la anterior no incluye `idiomas/`. El directorio `tests/` agrupa los cinco enunciados sintéticos usados durante el desarrollo y queda fuera del paquete instalable; sirve como material de referencia para colaboradores y para futuras iteraciones.
 
 ---
 
@@ -352,18 +353,13 @@ Este skill ha sido elaborado con asistencia de **Claude (Anthropic)** en la reda
 
 ## Licencia
 
-[Creative Commons Atribución 4.0 Internacional (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/deed.es). Texto resumido en [`LICENSE`](./LICENSE).
+[Apache License 2.0](LICENSE) (`Apache-2.0`). Copyright (c) 2026 Pablo — mindandhealth.org · github.com/novanoticia.
 
-Eres libre de:
+Permite usar, modificar y redistribuir el material, incluso comercialmente, conforme al texto íntegro de `LICENSE`. Al redistribuir, conserva la licencia y los avisos aplicables de autoría y atribución, incluye `NOTICE` e indica los archivos modificados. Se distribuye sin garantías; Apache 2.0 incluye una concesión de patentes y no concede derechos sobre marcas.
 
-- **Compartir** — copiar y redistribuir el material en cualquier medio o formato.
-- **Adaptar** — remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente.
+El cambio se aplica al material original del proyecto. Las referencias y materiales de terceros conservan sus propios derechos y condiciones; en particular, esta licencia no relicencia clasificaciones, publicaciones ni normas externas. Las salidas generadas sobre casos concretos no quedan automáticamente sujetas a esta licencia.
 
-Bajo el siguiente término:
-
-- **Atribución** — Debes dar crédito de manera adecuada, proporcionar un enlace a la licencia, e indicar si se han realizado cambios. Puedes hacerlo en cualquier forma razonable, pero no de forma tal que sugiera que tienes el apoyo del licenciante o lo recibes por el uso que haces.
-
-La licencia cubre el contenido textual del skill (`SKILL.md`, `flujo.md`, `plantilla-caso.md`, manual). No cubre las salidas generadas por el skill al ser ejecutado sobre casos concretos: dichas salidas son material de trabajo del jurista usuario, sometidas al régimen que cada profesional acuerde con su cliente y a las normas deontológicas aplicables.
+Las versiones ya distribuidas bajo CC BY 4.0 conservan los permisos concedidos. Los PDF versionados de `docs/` se mantienen como documentos históricos bajo la licencia indicada en ellos; no se sustituyen retroactivamente los archivos de releases anteriores. Véase `NOTICE`.
 
 ---
 
@@ -382,3 +378,5 @@ Cualquier feedback profesional es valioso, especialmente sobre: errores doctrina
 El autor puede ser contactado a través de [mindandhealth.org](https://mindandhealth.org). Issues y pull requests en GitHub también son bienvenidos. Las contribuciones de **juristas habilitados** que quieran probar el skill con casos reales (sometidos a la pseudonimización adecuada) son especialmente valoradas, porque a partir de la versión actual el principal vector de mejora ya no son las rondas con casos ficticios sino el contacto con casos reales en despacho.
 
 Más detalles sobre el skill, sus limitaciones y su uso prudente en el manual PDF.
+
+Nota sobre esta actualización de licencia: preparada con asistencia de IA (Codex, OpenAI); pendiente de revisión humana.

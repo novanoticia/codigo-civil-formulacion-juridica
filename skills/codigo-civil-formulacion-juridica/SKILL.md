@@ -2,7 +2,7 @@
 name: codigo-civil-formulacion-juridica
 description: >-
   Apoya a juristas (abogados y estudiantes avanzados bajo supervisión) a estructurar la formulación jurídica de casos ya estudiados, con el Código Civil español como norma de referencia. Trigger obligatorio: "/codigo-civil-formulacion-juridica"; actívalo con ese comando o con "formula/califica jurídicamente este caso". Modos: completo (default), alternativas, lagunas, riesgo, auditoria. NO para autoasesoramiento sin mediación profesional ni con datos identificables de partes reales.
-license: CC BY 4.0
+license: Apache-2.0
 ---
 
 # Formulación Jurídica (Código Civil español)
@@ -122,4 +122,4 @@ v0.1 — primer draft. Tres ficheros base.
 
 Skill diseñado y desarrollado por **Pablo** (web: <https://mindandhealth.org> · repositorio y contacto técnico: <https://github.com/novanoticia>), con asistencia de Claude (Anthropic) en la redacción del SKILL.md, el flujo.md y la plantilla de caso. El diseño conceptual, la decisión sobre estructura, los criterios deontológicos y la validación con casos ficticios son del autor.
 
-Licencia: **Creative Commons Atribución 4.0 Internacional (CC BY 4.0)**. Texto íntegro: <https://creativecommons.org/licenses/by/4.0/deed.es>. Uso, copia, modificación y redistribución libres, incluso con fines comerciales, siempre que se cite al autor. La obligación de atribución se considera satisfecha si la copia o derivado conserva la mención al autor original tal como figura en este SKILL.md.
+Licencia: **Apache License 2.0 (Apache-2.0)**. Texto íntegro en `LICENSE`; avisos de autoría en `NOTICE`. Uso, copia, modificación y redistribución conforme a sus términos, incluso con fines comerciales.

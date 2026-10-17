@@ -36,6 +36,7 @@ echo "────────────────────────�
 unzip -Z1 "$ZIP" | grep -v '/$' | sort > "$TMP/obtenido.txt"
 cat > "$TMP/esperado.txt" <<EOF
 $NOMBRE/LICENSE
+$NOMBRE/NOTICE
 $NOMBRE/SKILL.md
 $NOMBRE/derecho-foral.md
 $NOMBRE/flujo.md

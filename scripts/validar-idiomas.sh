@@ -14,7 +14,7 @@ ROOT="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 SKILL="$ROOT/skills/codigo-civil-formulacion-juridica"
 IDIOMAS="$SKILL/idiomas"
 LANGS="es en ca eu gl"
-FRONTMATTER_SHA="d4d0e58a52cb1bf1a5012b91ef9c468cbd4690c421dd4668c51b4e4cefed2c6a"
+FRONTMATTER_SHA="65eafd6b86fc753a0822e1e8fd2f20054f15f9317712c0ba88d7d7075c9ee250"
 ESTADOS="referencia borrador-ia experimental revisado"
 
 TMP="$(mktemp -d)"
@@ -107,7 +107,7 @@ done
 printf '%s' "$BLOQUE" | grep -q 'idioma=xx' || err "el bloque de SKILL.md no documenta la marca idioma=xx"
 PRIMERA="$(printf '%s\n' "$BLOQUE" | grep -m1 '^1\. ')"
 case "$PRIMERA" in *aviso.ia*) ;; *) err "el aviso de IA no es el primer punto del orden de avisos" ;; esac
-# Frontmatter: huella fijada en la línea base (commit ec86111); cambiarla exige decidirlo
+# Frontmatter: huella actualizada solo para Apache-2.0 por petición del titular.
 FM="$(awk 'NR==1 && /^---$/{f=1;next} f && /^---$/{exit} f' "$SKILL_MD" | sha256sum | cut -c1-64)"
 [ "$FM" = "$FRONTMATTER_SHA" ] || err "el frontmatter de SKILL.md ha cambiado"
 
