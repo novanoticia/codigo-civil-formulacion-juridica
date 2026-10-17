@@ -4,6 +4,14 @@ Historial de versiones del skill `codigo-civil-formulacion-juridica`. Las versio
 
 ---
 
+
+## [Sin publicar] — Apache 2.0
+
+- Sustituida CC BY 4.0 por Apache-2.0 para el material original de esta revisión, a petición del titular; conservados los permisos de las versiones anteriores y los PDF históricos.
+- Actualizados LICENSE, manifiestos, documentación y referencias de licencia del skill cuando existen. NOTICE conserva la autoría, los avisos profesionales y el alcance respecto de terceros; se incluye en los paquetes .zip y .skill.
+- Excepción autorizada por la petición de cambio de licencia: se ajustan únicamente las expectativas de licencia y empaquetado de las comprobaciones, sin recapturar el contenido clínico o jurídico ni los catálogos de idioma.
+- Actualización preparada con asistencia de IA (Codex, OpenAI); pendiente de revisión humana.
+
 ## v0.5 — Estado actual
 
 Cambio de idiomas y de fuentes forales. El razonamiento de los seis pasos, las reglas duras y la plantilla de caso **no cambian**. La salida en español sí cambia en un punto: lleva ahora el aviso de IA en la primera línea (excepción aprobada).

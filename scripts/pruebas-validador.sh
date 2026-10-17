@@ -79,7 +79,7 @@ mutante "estado no válido en en" skills/codigo-civil-formulacion-juridica/idiom
 mutante "quita el marcador de fin del bloque en SKILL.md" skills/codigo-civil-formulacion-juridica/SKILL.md "<!-- i18n:fin -->" '/^<!-- i18n:fin -->$/d'
 mutante "quita la forma idioma=xx del bloque de SKILL.md" skills/codigo-civil-formulacion-juridica/SKILL.md "con la forma \`idioma=xx\`" 's/con la forma `idioma=xx`/con otra forma/'
 mutante "quita el catálogo eu del bloque de SKILL.md" skills/codigo-civil-formulacion-juridica/SKILL.md "idiomas/eu.md" 's/idiomas\/eu\.md/idiomas\/eu.txt/'
-mutante "cambia la licencia del frontmatter de SKILL.md" skills/codigo-civil-formulacion-juridica/SKILL.md "license: CC BY 4.0" 's/CC BY 4.0/CC BY 4.1/'
+mutante "cambia la licencia del frontmatter de SKILL.md" skills/codigo-civil-formulacion-juridica/SKILL.md "license: Apache-2.0" 's/Apache-2.0/Apache-3.0/'
 mutante "pone aviso.foral antes que aviso.ia en el orden" skills/codigo-civil-formulacion-juridica/SKILL.md "1. \`aviso.ia\`" 's/^1\. `aviso\.ia`/1. `aviso.foral`/'
 mutante "quita el marcador de inicio del bloque en flujo.md" skills/codigo-civil-formulacion-juridica/flujo.md "<!-- i18n:inicio -->" '/^<!-- i18n:inicio -->$/d'
 
