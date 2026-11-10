@@ -29,7 +29,9 @@ Skill para asistentes conversacionales (Claude de Anthropic; también compatible
 
 Antes de probar el skill, conviene leer el manual profesional. Explica encuadre, presupuestos deontológicos, anatomía de la salida, modos de invocación, convenciones de marcado, reglas duras transversales, limitaciones conocidas, recomendaciones de uso prudente y autoría:
 
-📄 **[Manual de uso para profesionales del derecho (PDF, v0.5)](./docs/codigo-civil-formulacion-juridica-manual-v0.5.pdf)**
+📄 **[Manual de uso para profesionales del derecho (PDF, v0.5)](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases/download/v0.5.0/codigo-civil-formulacion-juridica-manual-v0.5.pdf)**
+
+El PDF se descarga desde la [release v0.5.0](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases/tag/v0.5.0), no desde el repositorio, para que el paquete del plugin contenga solo texto legible.
 
 Es un documento pensado para leer una vez antes del primer uso. Sin esa lectura, hay riesgo de tratar la herramienta como caja negra, lo que en este caso significa creer que produce dictamen jurídico cuando solo produce un andamio de calificaciones a contrastar por el jurista responsable.
 
@@ -283,9 +285,6 @@ codigo-civil-formulacion-juridica/
 ├── README.md                # Este archivo
 ├── CHANGELOG.md             # Historial de versiones
 ├── .gitignore
-├── docs/
-│   ├── codigo-civil-formulacion-juridica-manual-v0.3.pdf
-│   └── codigo-civil-formulacion-juridica-manual-v0.5.pdf
 └── tests/
     ├── test-A-vicios-caducidad.md
     ├── test-B-sucesiones-foral.md
@@ -359,7 +358,7 @@ Permite usar, modificar y redistribuir el material, incluso comercialmente, conf
 
 El cambio se aplica al material original del proyecto. Las referencias y materiales de terceros conservan sus propios derechos y condiciones; en particular, esta licencia no relicencia clasificaciones, publicaciones ni normas externas. Las salidas generadas sobre casos concretos no quedan automáticamente sujetas a esta licencia.
 
-Las versiones ya distribuidas bajo CC BY 4.0 conservan los permisos concedidos. Los PDF versionados de `docs/` se mantienen como documentos históricos bajo la licencia indicada en ellos; no se sustituyen retroactivamente los archivos de releases anteriores. Véase `NOTICE`.
+Las versiones ya distribuidas bajo CC BY 4.0 conservan los permisos concedidos. Los manuales PDF (publicados como adjuntos de las releases; antes, en `docs/`) se mantienen como documentos históricos bajo la licencia indicada en ellos; no se sustituyen retroactivamente los archivos de releases anteriores. Véase `NOTICE`.
 
 ---
 

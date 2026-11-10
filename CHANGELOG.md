@@ -12,6 +12,12 @@ Historial de versiones del skill `codigo-civil-formulacion-juridica`. Las versio
 - Excepción autorizada por la petición de cambio de licencia: se ajustan únicamente las expectativas de licencia y empaquetado de las comprobaciones, sin recapturar el contenido clínico o jurídico ni los catálogos de idioma.
 - Actualización preparada con asistencia de IA (Codex, OpenAI); pendiente de revisión humana.
 
+## [Sin publicar] — Revisión del directorio de plugins
+
+- Los manuales PDF (v0.3 y v0.5) salen del repositorio y pasan a ser adjuntos de la release v0.5.0. El validador del directorio no puede inspeccionarlos y retenía la publicación. README, NOTICE y PENDIENTES enlazan a la release.
+- CI: `actions/checkout` sin persistir el token de GitHub, y `pruebas-empaquetado.sh` copia el repositorio sin `.git`.
+- Cambios preparados con asistencia de IA (Claude Code, Anthropic); pendientes de revisión humana.
+
 ## v0.5 — Estado actual
 
 Cambio de idiomas y de fuentes forales. El razonamiento de los seis pasos, las reglas duras y la plantilla de caso **no cambian**. La salida en español sí cambia en un punto: lleva ahora el aviso de IA en la primera línea (excepción aprobada).
