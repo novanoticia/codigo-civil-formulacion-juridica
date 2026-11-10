@@ -15,8 +15,9 @@ NOMBRE="codigo-civil-formulacion-juridica"
 ERRORES=0
 err() { echo "❌ $*"; ERRORES=$((ERRORES + 1)); }
 
-cp -r "$ROOT/." "$TMP/repo"
-rm -rf "$TMP/repo/.git" "$TMP/repo/dist"
+# Se copia sin .git (su config puede guardar credenciales) ni dist/.
+mkdir -p "$TMP/repo"
+tar -C "$ROOT" --exclude=./.git --exclude=./dist -cf - . | tar -C "$TMP/repo" -xf -
 
 if ! (cd "$TMP/repo" && bash scripts/build-dist.sh > "$TMP/build.txt" 2>&1); then
   echo "❌ build-dist.sh termina con error:"

@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # El CI solo lee: no deja el token de GitHub escrito en .git/config
+          persist-credentials: false
 
       - name: Validador de catálogos, bloques, mapa y versiones
         run: bash scripts/validar-idiomas.sh
