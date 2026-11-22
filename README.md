@@ -9,19 +9,8 @@ Skill para asistentes conversacionales (Claude de Anthropic; también compatible
 > **Licencia:** [Apache-2.0](LICENSE)
 > **Versión actual:** v0.5
 
-> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el
-> formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon, Microsoft,
-> Cursor y Vercel, con Google como *core maintainer*). El paquete lleva el manifiesto
-> portable `plugin.json` en la raíz y el skill en
-> `skills/codigo-civil-formulacion-juridica/`, así que cualquier cliente conformante lo
-> descubre.
->
-> **Funciona en ChatGPT.** El skill es texto —protocolo de razonamiento, criterios y
-> plantilla, sin ejecución local—, así que se sube tal cual y funciona igual que en
-> Claude. Su frontmatter valida contra el conjunto cerrado de
-> [Agent Skills](https://agentskills.io/specification), que es lo que ChatGPT, claude.ai
-> y la Skills API exigen para aceptar la subida: una clave de más ahí no se ignora, falla
-> con error duro. Disponible también en el **plan gratuito**, con límites de uso.
+**En esta página:**
+[Antes de empezar](#antes-de-empezar-lee-el-manual) · [Cómo empezar](#cómo-empezar) · [Estado](#estado-del-proyecto) · [Audiencia](#audiencia-esperada) · [Qué hace](#qué-hace) · [Idiomas](#idiomas) · [Qué NO hace](#qué-no-hace) · [Instalación](#instalación) · [Privacidad](#privacidad-y-tratamiento-de-datos) · [Licencia](#licencia) · [Cómo citarlo](#cómo-citarlo)
 
 ---
 
@@ -34,6 +23,18 @@ Antes de probar el skill, conviene leer el manual profesional. Explica encuadre,
 El PDF se descarga desde la [release v0.5.0](https://github.com/novanoticia/codigo-civil-formulacion-juridica/releases/tag/v0.5.0), no desde el repositorio, para que el paquete del plugin contenga solo texto legible.
 
 Es un documento pensado para leer una vez antes del primer uso. Sin esa lectura, hay riesgo de tratar la herramienta como caja negra, lo que en este caso significa creer que produce dictamen jurídico cuando solo produce un andamio de calificaciones a contrastar por el jurista responsable.
+
+---
+
+## Cómo empezar
+
+1. **Lee el manual** (enlace de arriba) una vez antes del primer uso.
+2. **Instala el skill** donde vayas a usarlo; elige tu opción en [Instalación](#instalación).
+3. **Seudonimiza el caso** y abre una conversación temporal antes de pegar nada sensible.
+4. **Invoca** `/codigo-civil-formulacion-juridica` (modo `completo`) o añade un modo: `alternativas`, `lagunas`, `riesgo` o `auditoria`. El formato de entrada está en [`plantilla-caso.md`](./skills/codigo-civil-formulacion-juridica/plantilla-caso.md).
+5. **Verifica** las citas marcadas `[verificar]` y el articulado vigente en fuentes oficiales antes de usar nada.
+
+Detalle de cada paso en [Modo recomendado de uso](#modo-recomendado-de-uso-cualquier-opción).
 
 ---
 
@@ -121,7 +122,31 @@ Códigos disponibles: `es`, `en`, `ca`, `eu`, `gl`. Sin marca, la salida va en e
 
 ## Instalación
 
-Hay cinco formas de usar el skill, según dónde quieras invocarlo. Las tres primeras son las más sencillas.
+Hay siete formas de usar el skill, según dónde quieras invocarlo. Las tres primeras son las más sencillas.
+
+| Dónde lo usas | Opción |
+|---|---|
+| Claude.ai (web, escritorio o móvil) | [1](#opción-1--claudeai-web-app-de-escritorio-o-móvil) |
+| ChatGPT | [2](#opción-2--chatgpt-complementos) |
+| Perplexity | [3](#opción-3--perplexity-skills) |
+| Mistral AI | [4](#opción-4--mistral-ai-skills) |
+| Claude Code, como skill suelto | [5](#opción-5--claude-code-línea-de-comandos) |
+| Claude Code o Cowork, como plugin | [6](#opción-6--como-plugin-claude-code-y-cowork) |
+| Cualquier otra IA | [7](#opción-7--otras-inteligencias-artificiales) |
+
+> **Compatible con [Agent Plugins 1.0.0](https://agent-plugins.org/specification)** — el
+> formato portátil de empaquetado de la Agentic AI Foundation (OpenAI, Amazon, Microsoft,
+> Cursor y Vercel, con Google como *core maintainer*). El paquete lleva el manifiesto
+> portable `plugin.json` en la raíz y el skill en
+> `skills/codigo-civil-formulacion-juridica/`, así que cualquier cliente conformante lo
+> descubre.
+>
+> **Funciona en ChatGPT.** El skill es texto —protocolo de razonamiento, criterios y
+> plantilla, sin ejecución local—, así que se sube tal cual y funciona igual que en
+> Claude. Su frontmatter valida contra el conjunto cerrado de
+> [Agent Skills](https://agentskills.io/specification), que es lo que ChatGPT, claude.ai
+> y la Skills API exigen para aceptar la subida: una clave de más ahí no se ignora, falla
+> con error duro. Disponible también en el **plan gratuito**, con límites de uso.
 
 ### Opción 1 — Claude.ai (web, app de escritorio o móvil)
 
